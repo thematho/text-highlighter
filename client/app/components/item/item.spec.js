@@ -33,7 +33,9 @@ describe('Component: item', () => {
         });
 
       makeController = () => {
-        return new ItemController(stubItemService);
+        let ctrl = new ItemController(stubItemService);
+        ctrl.$onInit();
+        return ctrl;
       };
 
     }));

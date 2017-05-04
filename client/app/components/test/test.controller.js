@@ -1,8 +1,8 @@
-function {{ properCase name }}Controller() {
+function TestController() {
   'ngInject';
 
   let $ctrl = this;
-  this.name = '{{ camelCase name }}';
+  this.name = 'test';
 
   $ctrl.$onInit =  () => {};
   $ctrl.$onChanges = (changes) => {};
@@ -10,4 +10,4 @@ function {{ properCase name }}Controller() {
   $ctrl.$postLink = () => {};
 }
 
-export default {{ properCase name }}Controller;
+export default TestController;

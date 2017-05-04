@@ -1,16 +1,16 @@
-import {{ camelCase name }} from './{{ dashCase name }}'
-import {{ properCase name }}Controller from './{{ dashCase name }}.controller';
-import {{ camelCase name }}Component from './{{ dashCase name }}.component';
-import {{ camelCase name }}Template from './{{ dashCase name }}.html';
+import test from './test'
+import TestController from './test.controller';
+import testComponent from './test.component';
+import testTemplate from './test.html';
 
-describe('Component: {{ camelCase name }}', () => {
+describe('Component: test', () => {
   let $rootScope, makeController;
 
-  beforeEach(window.module({{ camelCase name }}));
+  beforeEach(window.module(test));
   beforeEach(inject((_$rootScope_) => {
     $rootScope = _$rootScope_;
     makeController = () => {
-      let $ctrl = new {{ properCase name }}Controller();
+      let $ctrl = new TestController();
       $ctrl.$onInit();
       return $ctrl;
     };
@@ -30,22 +30,22 @@ describe('Component: {{ camelCase name }}', () => {
 
   describe('Template', () => {
     // template specs
-    // tip: use regex to ensure correct bindings are used e.g., \{{  }}
+    // tip: use regex to ensure correct bindings are used e.g., {{  }}
     it('has name in template [REMOVE]', () => {
-      expect({{ camelCase name }}Template).to.match(/\{{\s?\$ctrl\.name\s?}}/g);
+      expect(testTemplate).to.match(/{{\s?\$ctrl\.name\s?}}/g);
     });
   });
 
   describe('Component', () => {
       // component/directive specs
-      let component = {{ camelCase name }}Component;
+      let component = testComponent;
 
       it('includes the intended template',() => {
-        expect(component.template).to.equal({{ camelCase name }}Template);
+        expect(component.template).to.equal(testTemplate);
       });
 
       it('invokes the right controller', () => {
-        expect(component.controller).to.equal({{ properCase name }}Controller);
+        expect(component.controller).to.equal(TestController);
       });
   });
 });

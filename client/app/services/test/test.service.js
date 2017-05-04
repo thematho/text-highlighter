@@ -1,7 +1,7 @@
-function {{ properCase name }}Service($http) {
+function TestService($http) {
     'ngInject';
 
-  this.name = '{{ properCase name }}Service';
+  this.name = 'TestService';
 
   let getName = () => {
     return this.name;
@@ -18,4 +18,4 @@ function {{ properCase name }}Service($http) {
   };
 }
 
-export default {{ properCase name }}Service;
+export default TestService;

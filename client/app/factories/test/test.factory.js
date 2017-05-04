@@ -1,7 +1,7 @@
 export default (/* injections*/) => {
   'ngInject';
 
-  let name = '{{ properCase name }}Service',
+  let name = 'TestService',
     getName = function () {
       return name;
     };

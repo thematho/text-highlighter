@@ -1,7 +1,9 @@
-class ItemController {
-  constructor(ItemService) {
-    'ngInject';
+function ItemController (ItemService) {
+  'ngInject';
 
+  let $ctrl = this;
+
+  this.$onInit =  () => {
     this.ItemService = ItemService;
     this.serviceName = this.ItemService.getName();
     this.ItemService.getItems()
@@ -10,7 +12,11 @@ class ItemController {
       }, () => {
         this.errorMsg = 'Error retrieving items';
       });
-  }
-}
+  };
+  this.$onChanges = (changes) => {};
+  this.$onDestroy = () => {};
+  this.$postLink = () => {};
+
+};
 
 export default ItemController;
