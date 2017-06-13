@@ -1,4 +1,4 @@
-import {{ dashCase name }} from './{{ dashCase name }}'
+import {{ camelCase name }} from './{{ dashCase name }}'
 
 describe('Filter: {{ dashCase name }}', () => {
   let filter;
@@ -10,7 +10,7 @@ describe('Filter: {{ dashCase name }}', () => {
 
   // Modules import
   beforeEach(() => {
-    filter = {{ dashCase name }}();
+    filter = {{ camelCase name }}();
   });
 
   it('should format entries to {{ dashCase name }} [REMOVE]' , () => {

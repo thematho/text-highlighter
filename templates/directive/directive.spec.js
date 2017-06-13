@@ -1,12 +1,12 @@
 import angular from 'angular';
-import {{ dashCase name }} from './{{ dashCase name }}';
+import {{ camelCase name }} from './{{ dashCase name }}';
 
-describe('directive: {{ dashCase name }}', () => {
+describe('Directive: {{ dashCase name }}', () => {
   let $compile, $timeout, $scope,
     el, htmlStr;
 
   // Modules import
-  beforeEach(window.module({{ dashCase name }}));
+  beforeEach(window.module({{ camelCase name }}));
   beforeEach(inject(($injector) => {
     $compile = $injector.get('$compile');
     $timeout = $injector.get('$timeout');

@@ -33,9 +33,9 @@ describe('Module {{ camelCase (pkg 'name') }}.{{ camelCase name }}', () => {
       };
     }));
 
-    it('has a name property [REMOVE]', () => { // erase if removing this.items from the service
+    it('has a getName method [REMOVE]', () => { // erase if removing this.items from the service
       let service = getService();
-      expect(service).to.have.property('name');
+      expect(service).to.have.property('getName');
     });
 
     describe('HTTP requests', () => {

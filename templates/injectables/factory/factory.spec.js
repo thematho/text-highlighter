@@ -1,11 +1,11 @@
-import {{ dashCase name }} from './{{ dashCase name }}.factory'
+import {{ camelCase name }} from './{{ dashCase name }}.factory'
 
 describe('Factory: {{ dashCase name }}', () => {
   let factory;
 
   // Modules import
   beforeEach(() => {
-    factory = {{ dashCase name }};
+    factory = {{ camelCase name }};
   });
 
   it('should create a {{ dashCase name }}Service [REMOVE]' , () => {
