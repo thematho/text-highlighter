@@ -13,7 +13,7 @@ module.exports = (plop) => {
       {
         type: 'confirm',
         name: 'needPath',
-        message: 'Should I place new service in services directory, or it should be placed somewhere else?',
+        message: 'Place new service in a different directory than the services directory? (Enter to use default directory)',
         default: false,
     },
       {

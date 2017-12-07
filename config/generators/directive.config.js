@@ -13,7 +13,7 @@ module.exports = (plop) => {
       {
         type: 'confirm',
         name: 'needPath',
-        message: 'Should I place new directive in directives directory, or it should be placed somewhere else?',
+        message: 'Place new directive in a different directory than the directives directory? (Enter to use default directory)',
         default: false,
     },
       {
@@ -26,8 +26,8 @@ module.exports = (plop) => {
     }
   ],
     actions: () => {
-      plop.addPartial('path', '{{#if path}}{{ path }}/{{else}}directives/{{/if}}{{ dashCase name }}');
-      plop.addPartial('fullPath', './client/app/common/{{> path}}');
+      plop.addPartial('path', '{{#if path}}{{ path }}/{{else}}common/directives/{{/if}}{{ dashCase name }}');
+      plop.addPartial('fullPath', './client/app/{{> path}}');
 
       return [
         {
@@ -39,7 +39,7 @@ module.exports = (plop) => {
         {
           type: 'add',
           path: '{{> fullPath}}/{{dashCase name}}.directive.js',
-          templateFile: './templates/directive/directive.js',
+          templateFile: './templates/directive/directive.directive.js',
           abortOnFail: true,
       },
         {

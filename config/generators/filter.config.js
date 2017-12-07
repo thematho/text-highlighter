@@ -13,7 +13,7 @@ module.exports = (plop) => {
       {
         type: 'confirm',
         name: 'needPath',
-        message: 'Should I place new filter in filters directory, or it should be placed somewhere else?',
+        message: 'Place new filter in a different directory than the filters directory? (Enter to use default directory)',
         default: false,
     },
       {
@@ -26,8 +26,8 @@ module.exports = (plop) => {
     }
   ],
     actions: () => {
-      plop.addPartial('path', '{{#if path}}{{ path }}/{{else}}filters/{{/if}}{{ dashCase name }}');
-      plop.addPartial('fullPath', './client/app/common/filters');
+      plop.addPartial('path', '{{#if path}}{{ path }}/{{else}}common/filters/{{/if}}{{ dashCase name }}');
+      plop.addPartial('fullPath', './client/app/');
 
       return [
         {

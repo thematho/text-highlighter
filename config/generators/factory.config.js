@@ -13,7 +13,7 @@ module.exports = (plop) => {
       {
         type: 'confirm',
         name: 'needPath',
-        message: 'Should I place new factory in factories directory, or it should be placed somewhere else?',
+        message: 'Place new factory in a different directory than the factories directory? (Enter to use default directory)',
         default: false,
     },
       {
