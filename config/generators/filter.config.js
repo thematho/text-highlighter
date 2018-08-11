@@ -13,7 +13,7 @@ module.exports = (plop) => {
       {
         type: 'confirm',
         name: 'needPath',
-        message: 'Place new filter in a different directory than the filters directory? (Enter to use default directory)',
+        message: 'Do you want to specify the path manually (otherwise component will be placed in \\common\\filters)?',
         default: false,
     },
       {
