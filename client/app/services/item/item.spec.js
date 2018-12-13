@@ -35,7 +35,7 @@ describe('Module app.services.item', () => {
 
     it('has a name property [REMOVE]', () => { // erase if removing this.items from the service
       let service = getService();
-      expect(service).to.have.property('name');
+      expect(service).toHaveProperty
     });
 
     describe('HTTP requests', () => {
@@ -57,7 +57,7 @@ describe('Module app.services.item', () => {
           let service = getService();
 
           service.getItems().then((response) => {
-            expect(response.data).to.have.length(2);
+            expect(response.data).toHaveLength(2);
             done();
           });
 
@@ -75,7 +75,7 @@ describe('Module app.services.item', () => {
 
           service.getItems()
           .then((response) => {}, (response) => {
-              expect(response.data).to.be.undefined;
+              expect(response.data).toBeUndefined;
               done();
             });
 

@@ -15,7 +15,7 @@ describe('Filter: {{ dashCase name }}', () => {
 
   it('should format entries to {{ dashCase name }} [REMOVE]' , () => {
     testInputs.forEach((test)=> {
-      expect(filter(test.input)).to.be.equal(test.expected);
+      expect(filter(test.input)).toEqual(test.expected);
     });
   });
 });

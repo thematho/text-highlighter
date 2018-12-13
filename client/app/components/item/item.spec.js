@@ -51,7 +51,7 @@ describe('Component: item', () => {
     // controller specs
     it('has a serviceName property provided by the ItemService[REMOVE]', () => { // erase if removing this.name from the controller
       let controller = makeController();
-      expect(controller).to.have.property('serviceName').and.to.equals('MockedService');
+      expect(controller).toHaveProperty
       expect(stubItemService.getName).to.have.been.calledOnce;
     });
 
@@ -59,7 +59,7 @@ describe('Component: item', () => {
        let controller = makeController();
         mockedPromise
           .finally(() => {
-            expect(controller).to.have.property('items').and.to.have.length(2);
+            expect(controller).toHaveProperty
             expect(stubItemService.getItems).to.have.been.calledOnce;
             done();
           });

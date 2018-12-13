@@ -10,8 +10,8 @@ describe('Factory: {{ dashCase name }}', () => {
 
   it('should create a {{ dashCase name }}Service [REMOVE]' , () => {
     let service = factory();
-      expect(service).to.have.property('getName');
-      expect(service.getName()).to.be.equals('{{ properCase name }}Service');
+      expect(service).toHavePropertygetName');
+      expect(service.getName()).toEquals('{{ properCase name }}Service');
   });
 });
 
