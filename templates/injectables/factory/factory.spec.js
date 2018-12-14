@@ -1,17 +1,17 @@
-import {{ dashCase name }} from './{{ dashCase name }}.factory'
+import {{ camelCase name }} from './{{ dashCase name }}.factory'
 
-describe('Factory: {{ dashCase name }}', () => {
+describe('Factory: {{ camelCase name }}', () => {
   let factory;
 
   // Modules import
   beforeEach(() => {
-    factory = {{ dashCase name }};
+    factory = {{ camelCase name }};
   });
 
-  it('should create a {{ dashCase name }}Service [REMOVE]' , () => {
+  it('should create a {{ camelCase name }}Service [REMOVE]' , () => {
     let service = factory();
-      expect(service).toHavePropertygetName');
-      expect(service.getName()).toEquals('{{ properCase name }}Service');
+      expect(service).toHaveProperty('getName');
+      expect(service.getName()).toEqual('{{ properCase name }}Service');
   });
 });
 

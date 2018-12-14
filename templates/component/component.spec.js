@@ -22,7 +22,7 @@ describe('Component: {{ camelCase name }}', () => {
     // controller specs
     it('has a name property [REMOVE]', () => { // erase if removing this.name from the controller
       let controller = makeController();
-      expect(controller).toHavePropertyme');
+      expect(controller).toHaveProperty('name');
     });
   });
 
