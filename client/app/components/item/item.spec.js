@@ -1,69 +1,44 @@
 import ItemModule from './item'
 import ItemController from './item.controller';
-import ItemServiceModule from '../../services/item/item';
+
+// Jest doesn't support flush pending promises so we use this module which is actually using
+// setTimeout under the hood, but is good enought for now
+import flushPromises from 'flush-promises';
+
+import MockedItemService from './__mocks__/item.service';
+jest.mock('./__mocks__/item.service');
 
 // [NOTE] This Spec example is only for show how to stub a service which is
 // using $http requests
 
 describe('Component: item', () => {
-  let $q, $scope, $timeout,
-    makeController, mockedPromise, stubItemService = {};
+  const mockedService = new MockedItemService();
+  let makeController = () => {
+    return new ItemController(mockedService);
+  };
 
-  // Modules import
   beforeEach(() => {
+    // Modules import
     window.module(ItemModule);
-    window.module(ItemServiceModule);
+    mockedService.getName.mockImplementation(() => 'MockedName');
+    mockedService.getItems.mockImplementation(() => {
+      return Promise.resolve({ data: ['Item 1', 'Item 2'] });
+    });
   });
 
   describe('Controller', () => {
-
-    beforeEach(inject(($injector) => {
-      let ItemService = $injector.get('ItemService');
-      $q = $injector.get('$q');
-      $timeout = $injector.get('$timeout');
-      mockedPromise = $q.when({ data: ['Item 1', 'Item 2']});
-
-      // You need to create an stub or spy for each method of the service which
-      // is used
-      stubItemService.getName= sinon.stub(ItemService, 'getName')
-        .returns('MockedService');
-      stubItemService.getItems= sinon.stub(ItemService, 'getItems')
-        .callsFake(() => {
-          return mockedPromise;
-        });
-
-      makeController = () => {
-        return new ItemController(stubItemService);
-      };
-
-    }));
-
-    // Restore sinon stubs
-    // More information on how to use Stubs: http://sinonjs.org/releases/v2.1.0/stubs/
-    afterEach(()=> {
-      Object.getOwnPropertyNames(stubItemService)
-        .forEach((key)=> {
-          stubItemService[key].restore();
-        });
-    });
-
-
-    // controller specs
-    it('has a serviceName property provided by the ItemService[REMOVE]', () => { // erase if removing this.name from the controller
+    it('has a serviceName property provided by the ItemService[REMOVE]', async () => { // erase if removing this.name from the controller
       let controller = makeController();
-      expect(controller).toHaveProperty
-      expect(stubItemService.getName).to.have.been.calledOnce;
+      await flushPromises();
+      expect(controller).toHaveProperty('serviceName');
+      expect(mockedService.getName).toHaveBeenCalled();
     });
 
-    it('has an items properties provided by a promise from the ItemService[REMOVE]', (done) => { // erase if removing this.name from the controller
-       let controller = makeController();
-        mockedPromise
-          .finally(() => {
-            expect(controller).toHaveProperty
-            expect(stubItemService.getItems).to.have.been.calledOnce;
-            done();
-          });
-        $timeout.flush();
+    it('has an items properties provided by a promise from the ItemService[REMOVE]', async () => { // erase if removing this.name from the controller
+      let controller = makeController();
+      await flushPromises();
+      expect(mockedService.getItems).toHaveBeenCalled();
+      expect(controller).toHaveProperty('items', ['Item 1', 'Item 2']);
     });
   });
 });
