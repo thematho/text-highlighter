@@ -1,14 +1,15 @@
-<navbar></navbar>
-<header>
-  <hero></hero>
-</header>
-<main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
-    <p>{{$ctrl.serviceName}}</p>
-    <div>Items: </div>
-    <ul>
-      <li ng-repeat="item in $ctrl.items"></li>
-    </ul>
+<div class="text-selection">
+  <marker-button-set on-click="$ctrl.onSelectMarker(color)">
+  </marker-button-set>
+  <selectable-text
+    selection-color="$ctrl.selectedColor"
+    on-text-selected="$ctrl.onTextSelected(selectionList)"
+  ></selectable-text>
+  <marker-button-set on-click="$ctrl.showSelection(color, wordList)"></marker-button-set>
+  <div class="filter-words">
+    <span
+      ng-repeat="word in $ctrl.wordList"
+      ng-class="{'filtered-word--'+$ctrl.selectedColor}"
+    >{{word}}</span>
   </div>
-</main>
+</div>

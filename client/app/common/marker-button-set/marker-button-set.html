@@ -1,0 +1,5 @@
+<div class="marker-button" 
+  ng-class="['marker-button--'+ color, {'marker-button--active': $ctrl.isActive($index)}]"
+  ng-click="::$ctrl.onClickMarker(color)"
+  ng-repeat="color in ::$ctrl.colorList">
+</div>

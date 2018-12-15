@@ -1,0 +1,20 @@
+marker-button-set {
+  display: inline-block;
+  .marker-button {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    &.marker-button--active {
+      border: 1px solid #000;
+    }
+    &.marker-button--red {
+      background-color: red;
+    }
+    &.marker-button--yellow {
+      background-color: yellow;
+    }
+    &.marker-button--green {
+      background-color: green;
+    }
+  }
+}

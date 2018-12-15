@@ -1,17 +1,14 @@
 import angular from 'angular';
 import directives from './directives/directives';
 import filters from './filters/filters';
-
-import Navbar from './navbar/navbar';
-import Hero from './hero/hero';
+import markerButtonSet from './marker-button-set/marker-button-set';
 
 let commonModule = angular.module('app.common', [
   directives,
   filters,
-  Navbar,
-  Hero,
+  markerButtonSet,
 ])
 
-.name;
+  .name;
 
 export default commonModule;
