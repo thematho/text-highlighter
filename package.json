@@ -80,11 +80,12 @@
     ]
   },
   "jest": {
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "**/*.{js,jsx}"
     ],
     "coveragePathIgnorePatterns": [
-      "<rootDir>[/\\\\](coverage|dist|docs|flow-typed|node_modules|config)[/\\\\]"
+      "<rootDir>[/\\\\](coverage|dist|docs|flow-typed|node_modules|config|templates)[/\\\\]"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/config/jest.setup.js",
     "testPathIgnorePatterns": [
