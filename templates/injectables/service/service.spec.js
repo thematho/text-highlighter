@@ -33,7 +33,7 @@ describe('Module {{ camelCase (pkg 'name') }}.{{ camelCase name }}', () => {
       };
     }));
 
-it('has a getName property [REMOVE]', () => { // erase if removing this.items from the service
+    it('has a getName property [REMOVE]', () => { // erase if removing this.items from the service
       let service = getService();
       expect(service).toHaveProperty('getName');
     });
@@ -86,4 +86,3 @@ it('has a getName property [REMOVE]', () => { // erase if removing this.items fr
 
   });
 });
-0
