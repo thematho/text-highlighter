@@ -1,5 +1,21 @@
 home {
   display: block;
-  border: 1px solid #000; 
+  border: 1px solid #000;
   padding: 1rem;
+  text-align: left;
+  .text-selection {
+    &.red {
+      span::selection { background-color: red;}
+    }
+    &.yellow {
+      span::selection { background-color: yellow;}
+    }
+    &.green {
+      span::selection { background-color: green;}
+    }
+  }
+  .filter-section {
+    margin: 1rem 0;
+    border: 1px solid #000;
+  }
 }

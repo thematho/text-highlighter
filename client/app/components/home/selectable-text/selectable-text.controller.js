@@ -1,34 +1,38 @@
-function SelectableTextController() {
+function SelectableTextController($scope) {
   'ngInject';
 
   let $ctrl = this;
-  this.name = 'selectableText';
 
-  /* Component's Lifecycle /*
-  /**
-   * Called on each controller after all the controllers on an element have been
-   *  constructed and had their bindings initialized.
-   */
-  $ctrl.$onInit = () => {};
-  /**
-   * Called whenever one-way bindings are updated.
-   * @param  {[Object]} changesObj Has of bound properties that have changed.
-   */
-  $ctrl.$onChanges = (changes) => {};
-  /**
-   * Called on each turn of the digest cycle.
-   */
-  $ctrl.$doCheck = () => {};
-  /**
-   * Called on a controller when its containing scope is destroyed.
-   * Use this hook for releasing external resources, watches and event handlers.
-   */
-  $ctrl.$onDestroy = () => {};
-  /**
-   * Called after this controller's element and its children have been linked.
-   * Use this to set up DOM event handlers and do direct DOM manipulation.
-   */
-  $ctrl.$postLink = () => {};
+  const parseText = (text = '') => (text.split('')
+    .map(c => `<span class="">${c}</span>`)
+    .join('')
+  );
+
+  $ctrl.$onChanges = (changes) => {
+    if (changes.initText) {
+      this.text = parseText(changes.initText.currentValue);
+    }
+  };
+
+  this.onTextSelected = (list) => {
+    if (!this.selectedColor) {
+      return;
+    }
+    $scope.$applyAsync(() => {
+      let classesToRemove = this.colorList.filter(color => color !== this.selectedColor);
+      list.forEach(span => {
+        let className = span.className;
+        // If the node alread has as current class the selectedColor
+        // we don't execute anything
+        if (!~className.indexOf(this.selectedColor)) {
+          classesToRemove.forEach((clss) => {
+            className = (className).replace(clss, '');
+          });
+          span.className = this.selectedColor;
+        }
+      })
+    })
+  };
 }
 
 export default SelectableTextController;

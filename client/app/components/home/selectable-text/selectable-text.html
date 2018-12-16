@@ -1,1 +1,7 @@
-{{ $ctrl.name }}
+<div class="wrapper">
+  <div
+    contenteditable
+    on-text-selected="$ctrl.onTextSelected(nodeList)"
+    ng-model="$ctrl.text"
+  ></div>
+</div>

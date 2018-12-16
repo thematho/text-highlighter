@@ -5,7 +5,8 @@ import './marker-button-set.scss';
 
 const component = {
   bindings: {
-    onClick: '&'
+    colorList: '<',
+    onClick: '&',
   },
   template,
   controller

@@ -1,10 +1,10 @@
 import angular from 'angular';
-// import someDirective from './some-directive';
+import contenteditable from './contenteditable/contenteditable';
 
-let directivesModule = angular.module('app.common.directives', [])
+let directivesModule = angular.module('app.common.directives', [
+  contenteditable
+])
 
-// .filter('some-directive', someDirective)
-
-.name;
+  .name;
 
 export default directivesModule;

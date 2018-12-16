@@ -1,3 +1,10 @@
 selectable-text {
-  color: red;
+  display: block;
+  font-size: 1rem;
+  max-width: 700px;
+  span {
+    &.red { background-color: red;}
+    &.yellow { background-color: yellow;}
+    &.green { background-color: green;}
+  }
 }

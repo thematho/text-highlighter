@@ -3,6 +3,7 @@ app {
   @extend %expand;
   .content {
     padding: 1rem;
-    text-align: center;
+    display: flex;
+    align-content: center;
   }
 }

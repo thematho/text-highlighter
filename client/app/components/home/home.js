@@ -4,7 +4,7 @@ import homeComponent from './home.component';
 
 import selectableTextComponent from './selectable-text/selectable-text';
 
-let homeModule = angular.module('home', [
+let homeModule = angular.module('app.home', [
   uiRouter,
   selectableTextComponent
 ])

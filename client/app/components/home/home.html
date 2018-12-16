@@ -1,11 +1,24 @@
-<div class="text-selection">
-  <marker-button-set on-click="$ctrl.onSelectMarker(color)">
+<div
+  class="text-selection"
+  ng-class="[$ctrl.selectedColor]"
+>
+  <marker-button-set
+    color-list="$ctrl.colorList"
+    on-click="$ctrl.onSelectMarker(color)"
+  >
   </marker-button-set>
   <selectable-text
-    selection-color="$ctrl.selectedColor"
-    on-text-selected="$ctrl.onTextSelected(selectionList)"
+    init-text="$ctrl.initText"
+    color-list="$ctrl.colorList"
+    selected-color="$ctrl.selectedColor"
+    on-selection="$ctrl.onTextSelected(selectionList)"
   ></selectable-text>
-  <marker-button-set on-click="$ctrl.showSelection(color, wordList)"></marker-button-set>
+</div>
+<div class="filter-section">
+  <marker-button-set
+    color-list="$ctrl.colorList"
+    on-click="$ctrl.showSelection(color, wordList)"
+  ></marker-button-set>
   <div class="filter-words">
     <span
       ng-repeat="word in $ctrl.wordList"
