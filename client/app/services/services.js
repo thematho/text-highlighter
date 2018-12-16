@@ -1,8 +1,12 @@
 import angular from 'angular';
-import FilterWordsEventService from './filter-words-event/filter-words-event';
+import FilterWordsEvent from './filter-words-event/filter-words-event';
+import TextContentSearch from './text-content-search/text-content-search';
+import TextHtmlParser from './text-html-parser/text-html-parser';
 
 let serviceModule = angular.module('app.services', [
-  FilterWordsEventService
+  FilterWordsEvent,
+  TextContentSearch,
+  TextHtmlParser,
 ])
 
   .name;

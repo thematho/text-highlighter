@@ -19,10 +19,32 @@
     color-list="$ctrl.colorList"
     on-click="$ctrl.showSelection(color)"
   ></marker-button-set>
-  <div class="filter-section__results">
-    <span
-      ng-repeat="word in $ctrl.wordList track by $index"
-      ng-class="['filtered-word--' + $ctrl.selectedColorFilter]"
-    >{{word}}<br></span>
-  </div>
+  <input
+    type="radio"
+    ng-model="$ctrl.filterOrder"
+    ng-click="$ctrl.sortBy(null)"
+    value="original"
+    name="original"
+  ><label for="original">Original order</label>
+  <input
+    type="radio"
+    ng-model="$ctrl.filterOrder"
+    ng-click="$ctrl.sortBy(true)"
+    value="asc"
+    name="asc"
+  >
+  <label"asc" for=>ASC</label>
+    <input
+      type="radio"
+      ng-model="$ctrl.filterOrder"
+      ng-click="$ctrl.sortBy(true, true)"
+      value="desc"
+      name="desc"
+    ><label "desc" for=>DESC</label>
+    <div class="filter-section__results">
+      <span
+        ng-repeat="word in $ctrl.wordList track by $index"
+        ng-class="['filtered-word--' + $ctrl.selectedColorFilter]"
+      >{{word}}<br></span>
+    </div>
 </div>
