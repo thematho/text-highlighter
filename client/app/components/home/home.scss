@@ -15,7 +15,15 @@ home {
     }
   }
   .filter-section {
+    width: 700px;
     margin: 1rem 0;
-    border: 1px solid #000;
+    font-size: 1rem;
+    .filter-section__results {
+      min-height: 70px;
+      border: 1px solid #000;
+      span.filtered-word--red { background-color: red;}
+      span.filtered-word--yellow { background-color: yellow;}
+      span.filtered-word--green { background-color: green;}
+    }
   }
 }

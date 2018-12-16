@@ -17,12 +17,12 @@
 <div class="filter-section">
   <marker-button-set
     color-list="$ctrl.colorList"
-    on-click="$ctrl.showSelection(color, wordList)"
+    on-click="$ctrl.showSelection(color)"
   ></marker-button-set>
-  <div class="filter-words">
+  <div class="filter-section__results">
     <span
-      ng-repeat="word in $ctrl.wordList"
-      ng-class="{'filtered-word--'+$ctrl.selectedColor}"
-    >{{word}}</span>
+      ng-repeat="word in $ctrl.wordList track by $index"
+      ng-class="['filtered-word--' + $ctrl.selectedColorFilter]"
+    >{{word}}<br></span>
   </div>
 </div>

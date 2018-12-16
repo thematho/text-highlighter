@@ -6,7 +6,7 @@
 const getNodesBetween = (firstNode, lastNode) => {
   let nodes = [firstNode];
   let currentNode = firstNode;
-  while (currentNode !== lastNode) {
+  while (currentNode && currentNode !== lastNode) {
     currentNode = currentNode.nextElementSibling;
     nodes.push(currentNode);
   }
