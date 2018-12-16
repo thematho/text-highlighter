@@ -1,3 +1,8 @@
+/**
+ * @returns Array<DOM Nodes>
+ * @param {DOM Node} firstNode first Node of the selection
+ * @param {DOM Node} lastNode last Node of the selection
+ */
 const getNodesBetween = (firstNode, lastNode) => {
   let nodes = [firstNode];
   let currentNode = firstNode;
@@ -10,6 +15,7 @@ const getNodesBetween = (firstNode, lastNode) => {
 export default ($scope, el) => {
   el.on('mouseup blur', (e) => {
     if (window.getSelection) {
+      // Get the current Selected Text/Nodes and send the result to the output callback 
       const selection = window.getSelection();
       const range = selection.getRangeAt(0);
       const startParent = range.startContainer.parentNode;
@@ -18,21 +24,7 @@ export default ($scope, el) => {
         nodeList: getNodesBetween(startParent, endParent)
       });
     }
-    // else if (document.selection) {
-    //   // Support for older browsers
-    //   selection = document.selection.createRange();
-    //   var ids = new Array();
-
-    //   if (selection.htmlText.toLowerCase().indexOf('span') >= 0) {
-    //     $(selection.htmlText).filter('span').each(function (index, span) {
-    //       ids.push(span.id);
-    //     });
-    //     alert(ids);
-    //   } else {
-    //     alert(selection.parentElement().id);
-    //   }
-    // }
-  })
+  });
   $scope.$on('$destroy', () => {
     // Unbind listeners
     el.off('mouseup blur')
